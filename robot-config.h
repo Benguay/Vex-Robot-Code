@@ -9,6 +9,7 @@ extern motor BackWheel;
 extern motor FrontWheel;
 extern controller Controller1;
 extern motor_group barLift;
+extern motor_group barLift2;
 
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.
