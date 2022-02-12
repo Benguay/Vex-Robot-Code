@@ -15,7 +15,8 @@
 // BackWheel            motor         3               
 // FrontWheel           motor         4               
 // Controller1          controller                    
-// barLift              motor_group   6, 7            
+// barLift              motor_group   6, 8            
+// barLift2             motor_group   7, 9
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
@@ -79,16 +80,20 @@ void speedDemon() {
 void barLiftCode(){
   if(Controller1.ButtonR1.pressing()){
     barLift.setVelocity(500, rpm);
+    barLift2.setVelocity(500, rpm);
   } else if (Controller1.ButtonR2.pressing()) {
     barLift.setVelocity(-500, rpm);
+    barLift2.setVelocity(-500, rpm);
   } /*else if (Controller1.ButtonL1.pressing()) {
     barLift.setVelocity(56,rpm);
   } else if (Controller1.ButtonL2.pressing()) {
     barLift.setVelocity(-56, rpm); 
   } */else {
     barLift.setVelocity(0, rpm);
+    barLift2.setVelocity(0, rpm);
   }
   barLift.spin(forward);
+  barLift2.spin(forward);
 }
 
 void boolFlipper() {
@@ -193,15 +198,20 @@ void rotateA(int ms, bool directio, int speed = 500) {
 void fourBarA(int ms, bool dir) {
   if(dir==1){
     barLift.setVelocity(500, rpm);
+    barLift2.setVelocity(500, rpm);
   } else {
     barLift.setVelocity(-500,rpm);
+    barLift2.setVelocity(-500, rpm);
   }
 
   barLift.spin(forward);
+  barLift2.spin(forward);
   wait(ms, msec);
 
   barLift.setVelocity(0, rpm);
+  barLift2.setVelocity(0, rpm);
   barLift.spin(forward);
+  barLift2.spin(forward);
 }
 
 void freezeA(){
@@ -210,12 +220,14 @@ void freezeA(){
   RightWheel.setVelocity(0, rpm);
   LeftWheel.setVelocity(0, rpm);
   barLift.setVelocity(0, rpm);
+  barLift2.setVelocity(0, rpm);
 
   FrontWheel.spin(forward);
   BackWheel.spin(forward);
   RightWheel.spin(forward);
   LeftWheel.spin(forward);
   barLift.spin(forward);
+  barLift2.spin(forward);
 }
 
 void toss(){
