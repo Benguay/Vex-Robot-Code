@@ -14,8 +14,11 @@ motor BackWheel = motor(PORT3, ratio18_1, true);
 motor FrontWheel = motor(PORT4, ratio18_1, false);
 controller Controller1 = controller(primary);
 motor barLiftMotorA = motor(PORT6, ratio18_1, false);
-motor barLiftMotorB = motor(PORT7, ratio18_1, true);
+motor barLiftMotorB = motor(PORT8, ratio18_1, true);
 motor_group barLift = motor_group(barLiftMotorA, barLiftMotorB);
+motor barLiftMotor2A = motor(PORT7, ratio18_1, false);
+motor barLiftMotor2B = motor(PORT9, ratio18_1, true);
+motor_group barLift2 = motor_group(barLiftMotor2A, barLiftMotor2B);
 
 // VEXcode generated functions
 // define variable for remote controller enable/disable
